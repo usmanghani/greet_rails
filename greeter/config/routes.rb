@@ -1,4 +1,12 @@
 Greeter::Application.routes.draw do
+  resources :greetings  do
+    resources :recipients do
+      resources :schedule
+    end
+  end
+
+  devise_for :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

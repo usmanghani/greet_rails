@@ -1,0 +1,21 @@
+<h1>Listing greetings</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @greetings.each do |greeting| %>
+  <tr>
+    <td><%= link_to 'Show', greeting %></td>
+    <td><%= link_to 'Edit', edit_greeting_path(greeting) %></td>
+    <td><%= link_to 'Destroy', greeting, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Greeting', new_greeting_path %>
