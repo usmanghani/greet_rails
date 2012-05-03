@@ -1,0 +1,2 @@
+module GreetingRecipientHelper
+end

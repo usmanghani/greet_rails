@@ -9,6 +9,7 @@
 
 <% @greetings.each do |greeting| %>
   <tr>
+    <td><%= greeting.text.length > 15 ? greeting.text.slice(0, 15) + "..." : greeting.text %></td>
     <td><%= link_to 'Show', greeting %></td>
     <td><%= link_to 'Edit', edit_greeting_path(greeting) %></td>
     <td><%= link_to 'Destroy', greeting, confirm: 'Are you sure?', method: :delete %></td>

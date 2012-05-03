@@ -1,3 +1,4 @@
+<% @greeting.greeting_recipients.build %>
 <%= form_for(@greeting) do |f| %>
   <% if @greeting.errors.any? %>
     <div id="error_explanation">
@@ -11,10 +12,12 @@
     </div>
   <% end %>
 
-  <%= f.label :text, "Greeting" %>
-  <%= f.text_area :text %>
+  <%= f.label :text, "Greeting" %><br />
+  <%= f.text_area :text, :rows => 3 %>
 
 
+    <%= render :partial => 'greeting_recipients/form',
+               :locals => {:form => f} %>
 
   <div class="actions">
     <%= f.submit %>

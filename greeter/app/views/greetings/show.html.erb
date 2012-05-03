@@ -1,5 +1,23 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <b>Greeting:</b><br/>
+  <pre>
+    <%= @greeting.text %>
+  </pre>
+</p>
+
+<p>
+  <b>Recipients:</b><br/>
+  <% @greeting.greeting_recipients.each do |recipient| %>
+     <%= recipient.recipient %>
+     <p>
+        <b>Schedule:</b><br/>
+            <% recipient.greeting_schedules.each do |schedule| %>
+                <%= schedule.when %>
+            <% end %>
+  <% end %>
+</p>
 
 <%= link_to 'Edit', edit_greeting_path(@greeting) %> |
 <%= link_to 'Back', greetings_path %>

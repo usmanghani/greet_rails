@@ -7,7 +7,7 @@ class GreetingsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @greetings }
+      format.json { render :json => @greetings }
     end
   end
 
@@ -18,7 +18,7 @@ class GreetingsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @greeting }
+      format.json { render :json => @greeting }
     end
   end
 

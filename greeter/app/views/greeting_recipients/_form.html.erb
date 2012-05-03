@@ -1,0 +1,14 @@
+<%= form.fields_for :greeting_recipients do |recipient_form| %>
+  <div class="field">
+    <%= recipient_form.label :recipient, 'Recipient:' %>
+    <%= recipient_form.text_field :recipient %>
+    <%= recipient_form.label :recipient_type, 'Recipient Type:' %>
+    <%= recipient_form.select :recipient_type, options_for_select([['Email', 0], ['Twitter', 1], ['Facebook', 2]], 0) %>
+  </div>
+  <% unless recipient_form.object.nil? || recipient_form.object.new_record? %>
+    <div class="field">
+      <%= recipient_form.label :_destroy, 'Remove:' %>
+      <%= recipient_form.check_box :_destroy %>
+    </div>
+  <% end %>
+<% end %>

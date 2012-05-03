@@ -37,6 +37,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 
+gem 'ruby-debug-base19'
 
 group :test do
   # Pretty printed test output
