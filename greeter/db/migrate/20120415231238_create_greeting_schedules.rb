@@ -5,10 +5,10 @@ class CreateGreetingSchedules < ActiveRecord::Migration
       t.integer :recurrence_count, :default => 1
       t.datetime :recurrence_end
       t.datetime :next_occurrence
-      t.references :GreetingRecipient
+      t.integer :greeting_recipient_id
 
       t.timestamps
     end
-    add_index :greeting_schedules, :GreetingRecipient_id
+    add_index :greeting_schedules, :greeting_recipient_id
   end
 end

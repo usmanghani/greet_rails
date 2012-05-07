@@ -24,16 +24,16 @@ ActiveRecord::Schema.define(:version => 20120416000424) do
   add_index "greeting_recipients", ["greeting_id"], :name => "index_greeting_recipients_on_greeting_id"
 
   create_table "greeting_schedules", :force => true do |t|
-    t.datetime "when",                 :null => false
-    t.integer  "recurrence_count"
+    t.datetime "when",                                 :null => false
+    t.integer  "recurrence_count",      :default => 1
     t.datetime "recurrence_end"
-    t.datetime "next_occurence"
-    t.integer  "GreetingRecipient_id"
+    t.datetime "next_occurrence"
+    t.integer  "greeting_recipient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "greeting_schedules", ["GreetingRecipient_id"], :name => "index_greeting_schedules_on_GreetingRecipient_id"
+  add_index "greeting_schedules", ["greeting_recipient_id"], :name => "index_greeting_schedules_on_greeting_recipient_id"
 
   create_table "greetings", :force => true do |t|
     t.text     "text",       :null => false

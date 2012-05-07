@@ -7,7 +7,7 @@ class GreetingRecipient < ActiveRecord::Base
          :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
   RECIPIENT_TYPES = %w(Email Twitter Facebook)
-  def recipient_type
-    RECIPIENT_TYPES[read_attribute(:recipient_type)]
-  end
+  # def recipient_type
+  #     RECIPIENT_TYPES[read_attribute(:recipient_type)]
+  #   end
 end

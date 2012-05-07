@@ -11,6 +11,7 @@
   <b>Recipients:</b><br/>
   <% @greeting.greeting_recipients.each do |recipient| %>
      <%= recipient.recipient %>
+     <nbsp/><%= recipient.recipient_type %>
      <p>
         <b>Schedule:</b><br/>
             <% recipient.greeting_schedules.each do |schedule| %>

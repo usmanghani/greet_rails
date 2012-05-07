@@ -1,5 +1,5 @@
 <% @greeting.greeting_recipients.build %>
-<%= form_for(@greeting) do |f| %>
+<%= form_for @greeting do |f| %>
   <% if @greeting.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@greeting.errors.count, "error") %> prohibited this greeting from being saved:</h2>
@@ -16,8 +16,8 @@
   <%= f.text_area :text, :rows => 3 %>
 
 
-    <%= render :partial => 'greeting_recipients/form',
-               :locals => {:form => f} %>
+    <%= render :partial => 'recipient',
+               :locals => { :form => f, :greeting_recipients => @greeting.greeting_recipients } %>
 
   <div class="actions">
     <%= f.submit %>

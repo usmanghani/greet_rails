@@ -1,0 +1,20 @@
+<% greeting_recipients.each do |r| %>
+	<%= form.fields_for r do |recipient_form| %>
+		<div class="field">
+			<%= recipient_form.label :recipient, 'Recipient:' %>
+			<%= recipient_form.text_field :recipient %>
+			<%= recipient_form.label :recipient_type, 'Recipient Type:' %>
+			<%= recipient_form.select :recipient_type, options_for_select([['Email', 'Email'], ['Twitter', 'Twitter'], ['Facebook', 'Facebook']], 0) %>
+		</div>
+		<% unless recipient_form.object.nil? || recipient_form.object.new_record? %>
+			<div class="field">
+				<%= recipient_form.label :_destroy, 'Remove:' %>
+				<%= recipient_form.check_box :_destroy %>
+			</div>
+		<% end %>
+
+		<%= render :partial => 'schedule',
+			:locals => { :form => form, :recipient => r, :schedules => r.greeting_schedules } %>
+		
+	<% end %>
+<% end %>

@@ -1,0 +1,17 @@
+<% schedules.each do |s| %>
+	<%= form.fields_for s do |schdule_form| %>
+		<div class="field">
+			<%= schedule_form.label :when, 'When:' %>
+			<%= schedule_form.select_datetime :when %>
+			<!-- <%= schedule_form.label :recipient_type, 'Recipient Type:' %>
+					<%= schedule_form.select :recipient_type, options_for_select([['Email', 'Email'], ['Twitter', 'Twitter'], ['Facebook', 'Facebook']], 0) %> -->
+		</div>
+		<% unless schedule_form.object.nil? || schedule_form.object.new_record? %>
+			<div class="field">
+				<%= schedule_form.label :_destroy, 'Remove:' %>
+				<%= schedule_form.check_box :_destroy %>
+			</div>
+		<% end %>
+		
+	<% end %>
+<% end %>
